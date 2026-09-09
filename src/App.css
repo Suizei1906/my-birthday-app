@@ -9,6 +9,7 @@
   position: relative;
   overflow: hidden;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 /* Floating Confetti Particles */
@@ -26,6 +27,7 @@
   position: absolute;
   top: -40px;
   animation: fall linear infinite;
+  user-select: none;
 }
 
 @keyframes fall {
@@ -57,6 +59,7 @@
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
+  user-select: none;
 }
 
 .music-btn:hover {
@@ -68,15 +71,19 @@
 .card-container {
   perspective: 1200px;
   z-index: 5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .card {
-  width: 320px;
+  width: min(320px, 90vw); /* Mobile responsive width */
   height: 440px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* Removes touch flash on mobile */
 }
 
 .card.is-open {
@@ -88,6 +95,7 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* iOS Safari compatibility */
   border-radius: 20px;
   padding: 30px 25px;
   box-sizing: border-box;
@@ -107,6 +115,7 @@
 .decorations {
   font-size: 26px;
   margin-bottom: 20px;
+  user-select: none;
 }
 
 .front-title {
@@ -122,6 +131,7 @@
   background: rgba(255, 255, 255, 0.25);
   padding: 8px 16px;
   border-radius: 15px;
+  user-select: none;
 }
 
 /* Card Back Styling */
@@ -151,4 +161,38 @@
   margin-top: 20px;
   text-align: center;
   color: #ff4d6d;
+}
+
+/* Mobile Devices Optimization */
+@media (max-width: 480px) {
+  .card {
+    height: 410px;
+  }
+
+  .card-side {
+    padding: 20px 18px;
+  }
+
+  .front-title {
+    font-size: 24px;
+  }
+
+  .back-title {
+    font-size: 18px;
+  }
+
+  .back-message {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .music-player {
+    top: 15px;
+    right: 15px;
+  }
+
+  .music-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
 }

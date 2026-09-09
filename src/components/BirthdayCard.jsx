@@ -3,11 +3,19 @@ import React, { useState } from 'react';
 export default function BirthdayCard() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="card-container">
       <div
         className={`card ${isOpen ? 'is-open' : ''}`}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggle}
+        onTouchEnd={(e) => {
+          e.preventDefault();
+          handleToggle();
+        }}
       >
         {/* Front side */}
         <div className="card-side card-front">
@@ -27,7 +35,7 @@ export default function BirthdayCard() {
           </p>
           <p className="back-closing">
             With all my love,<br />
-            <strong>Imong Anak na Mabait ZJ</strong>
+            <strong>[Your Name]</strong>
           </p>
         </div>
       </div>
