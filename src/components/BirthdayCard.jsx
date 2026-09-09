@@ -20,7 +20,7 @@ export default function BirthdayCard() {
         {/* Front side */}
         <div className="card-side card-front">
           <div className="decorations">🌸 💖 ✨ 💖 🌸</div>
-          <h1 className="front-title">Happy Birthday, Mom!</h1>
+          <h1 className="front-title">Happy Birthday, Mama Suzy!</h1>
           <p className="front-subtitle">Tap to open your card ❤️</p>
         </div>
 
@@ -34,8 +34,8 @@ export default function BirthdayCard() {
             you bring to everyone around you.
           </p>
           <p className="back-closing">
-            With all my love,<br />
-            <strong>[Your Name]</strong>
+            With all our love,<br />
+            <strong>Your Anakidzzz paye at zijey</strong>
           </p>
         </div>
       </div>
