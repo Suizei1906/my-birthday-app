@@ -1,0 +1,154 @@
+/* Page Layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Floating Confetti Particles */
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.confetti-particle {
+  position: absolute;
+  top: -40px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Music Player Button */
+.music-player {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.music-btn {
+  background: #ffffff;
+  color: #ff4d6d;
+  border: 2px solid #ff4d6d;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+  background: #ff4d6d;
+  color: #ffffff;
+}
+
+/* 3D Card Flipping Structure */
+.card-container {
+  perspective: 1200px;
+  z-index: 5;
+}
+
+.card {
+  width: 320px;
+  height: 440px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.card.is-open {
+  transform: rotateY(180deg);
+}
+
+.card-side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  padding: 30px 25px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 15px 35px rgba(255, 77, 109, 0.15);
+}
+
+/* Card Front Styling */
+.card-front {
+  background-color: #ff8fa3;
+  color: #ffffff;
+}
+
+.decorations {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.front-title {
+  font-size: 30px;
+  margin: 0;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.front-subtitle {
+  margin-top: 25px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 8px 16px;
+  border-radius: 15px;
+}
+
+/* Card Back Styling */
+.card-back {
+  background-color: #ffffff;
+  color: #333333;
+  transform: rotateY(180deg);
+  border: 3px solid #ff8fa3;
+}
+
+.back-title {
+  font-size: 20px;
+  color: #ff4d6d;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.back-message {
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center;
+  color: #555555;
+}
+
+.back-closing {
+  margin-top: 20px;
+  text-align: center;
+  color: #ff4d6d;
+}
